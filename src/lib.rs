@@ -61,6 +61,7 @@ impl<E> MultiErrors<E> {
         self.0.is_empty()
     }
 
+    /// Converts [`Self`] into a [`PartialResult`] using `ok` as the value
     pub fn into_result<T>(self, ok: T) -> PartialResult<T, Self> {
         if self.0.is_empty() {
             Ok(ok)
